@@ -1,0 +1,7 @@
+stm32f0/Debug
+stm32f0/includes
+stm32f0/Binaries
+stm32f0/.settings/
+stm32f0/.project
+stm32f0/.cproject
+stm32f0/STM32F030F4PX_FLASH.ld

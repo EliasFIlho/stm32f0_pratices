@@ -1,0 +1,20 @@
+22:30:45 **** Incremental Build of configuration Debug for project Pulse_counter ****
+make -j12 all 
+arm-none-eabi-gcc -mcpu=cortex-m0 -g3 -DDEBUG -c -x assembler-with-cpp -MMD -MP -MF"Startup/startup_stm32f030f4px.d" -MT"Startup/startup_stm32f030f4px.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Startup/startup_stm32f030f4px.o" "../Startup/startup_stm32f030f4px.s"
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F0 -DSTM32F030F4Px -DSTM32F030x6 -c -I../Inc -I/home/elias/STM32CubeIDE/Pulse_Counter/CMSIS/Include -I/home/elias/STM32CubeIDE/Pulse_Counter/CMSIS/Device/ST/STM32F0xx/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F0 -DSTM32F030F4Px -DSTM32F030x6 -c -I../Inc -I/home/elias/STM32CubeIDE/Pulse_Counter/CMSIS/Include -I/home/elias/STM32CubeIDE/Pulse_Counter/CMSIS/Device/ST/STM32F0xx/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/syscalls.o"
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F0 -DSTM32F030F4Px -DSTM32F030x6 -c -I../Inc -I/home/elias/STM32CubeIDE/Pulse_Counter/CMSIS/Include -I/home/elias/STM32CubeIDE/Pulse_Counter/CMSIS/Device/ST/STM32F0xx/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/sysmem.o"
+arm-none-eabi-gcc -o "Pulse_counter.elf" @"objects.list"   -mcpu=cortex-m0 -T"/home/elias/STM32CubeIDE/Pulse_Counter/Pulse_counter/STM32F030F4PX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Pulse_counter.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Pulse_counter.elf
+ 
+arm-none-eabi-size  Pulse_counter.elf 
+arm-none-eabi-objdump -h -S Pulse_counter.elf  > "Pulse_counter.list"
+   text	   data	    bss	    dec	    hex	filename
+    460	      0	   1568	   2028	    7ec	Pulse_counter.elf
+Finished building: default.size.stdout
+ 
+Finished building: Pulse_counter.list
+ 
+
+22:30:45 Build Finished. 0 errors, 0 warnings. (took 217ms)
+

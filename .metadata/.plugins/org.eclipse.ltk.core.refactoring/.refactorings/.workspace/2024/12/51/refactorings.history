@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Delete resource &apos;Pulse_counter/Src/gpio&apos;" deleteContents="false" description="Delete resource &apos;Pulse_counter/Src/gpio&apos;" element1="/Pulse_counter/Src/gpio" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1734635011866"/>&#x0A;<refactoring comment="Rename resource &apos;Pulse_counter&apos; to &apos;stm32f0&apos;" description="Rename resource &apos;Pulse_counter&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/Pulse_counter" name="stm32f0" stamp="1734636322844" updateReferences="true"/>
+</session>
