@@ -1,4 +1,5 @@
-.metadata
+.metadata/
+stm32f0/stm32f0 Debug.launch
 stm32f0/Debug
 stm32f0/includes
 stm32f0/Binaries

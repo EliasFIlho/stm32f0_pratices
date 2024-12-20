@@ -8,8 +8,8 @@
 #ifndef DRIVERS_PERIPHERALS_GPIO_GPIO_H_
 #define DRIVERS_PERIPHERALS_GPIO_GPIO_H_
 
+
 #include <stdint.h>
-#include "../rcc/rcc.h"
 #include "stm32f030x6.h"
 
 
