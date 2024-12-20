@@ -16,12 +16,12 @@ int main(void)
 		.pin = 4
 	};
 
-	rcc_enable_gpio(RCC_GPIOA);
+	gpio_init(RCC_GPIOA);
 	gpio_cfg_peripheral(&gpio_cfg);
 
 	while(1){
 		gpio_toggle_pin(GPIOA, 4);
-		delay_ms(300);
+		delay_s(3);
 
 	}
 }

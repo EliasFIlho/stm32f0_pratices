@@ -9,6 +9,10 @@
 #include "gpio.h"
 
 
+void gpio_init(rcc_gpio_t port){
+	rcc_enable_gpio(port);
+}
+
 stm_error_t gpio_cfg_peripheral(gpio_config_t *cfg){
 
 

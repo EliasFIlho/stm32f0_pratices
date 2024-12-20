@@ -11,6 +11,7 @@
 
 #include <stdint.h>
 #include "stm32f030x6.h"
+#include "../rcc/rcc.h"
 
 
 typedef enum{
@@ -50,6 +51,7 @@ typedef struct{
 	uint8_t pin;
 }gpio_config_t ;
 
+void gpio_init(rcc_gpio_t port);
 stm_error_t gpio_cfg_peripheral(gpio_config_t *cfg);
 stm_error_t gpio_toggle_pin(GPIO_TypeDef *GPIOX, uint8_t pin);
 stm_error_t gpio_set_pin(GPIO_TypeDef *GPIOX, uint8_t pin);
