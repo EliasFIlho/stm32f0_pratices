@@ -24,6 +24,7 @@ stm_error_t hcsr04_init(gpio_config_t *echo, gpio_config_t *trigger){
 
 uint8_t hcsr04_read_distance_cm(gpio_config_t *echo, gpio_config_t *trigger){
 	_trigger_io(trigger->GPIOX,trigger->pin);
+
 	return 0;
 
 }

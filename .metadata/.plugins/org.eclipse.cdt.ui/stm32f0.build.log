@@ -1,20 +1,18 @@
-23:44:30 **** Incremental Build of configuration Debug for project stm32f0 ****
+14:04:00 **** Incremental Build of configuration Debug for project stm32f0 ****
 make -j12 all 
-arm-none-eabi-gcc "../Src/drivers/hc_sr04/hc_sr04.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F0 -DSTM32F030F4Px -DSTM32F030x6 -c -I../Inc -I/home/elias/STM32CubeIDE/Pulse_Counter/CMSIS/Include -I/home/elias/STM32CubeIDE/Pulse_Counter/CMSIS/Device/ST/STM32F0xx/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/drivers/hc_sr04/hc_sr04.d" -MT"Src/drivers/hc_sr04/hc_sr04.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/drivers/hc_sr04/hc_sr04.o"
-../Src/drivers/hc_sr04/hc_sr04.c:12:13: warning: '_read_echo' declared 'static' but never defined [-Wunused-function]
-   12 | void static _read_echo(GPIO_TypeDef *GPIOX, uint8_t pin);
-      |             ^~~~~~~~~~
+arm-none-eabi-gcc "../Src/drivers/peripherals/timer/timer.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F0 -DSTM32F030F4Px -DSTM32F030x6 -c -I../Inc -I/home/elias/STM32CubeIDE/Pulse_Counter/CMSIS/Include -I/home/elias/STM32CubeIDE/Pulse_Counter/CMSIS/Device/ST/STM32F0xx/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/drivers/peripherals/timer/timer.d" -MT"Src/drivers/peripherals/timer/timer.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/drivers/peripherals/timer/timer.o"
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F0 -DSTM32F030F4Px -DSTM32F030x6 -c -I../Inc -I/home/elias/STM32CubeIDE/Pulse_Counter/CMSIS/Include -I/home/elias/STM32CubeIDE/Pulse_Counter/CMSIS/Device/ST/STM32F0xx/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
 arm-none-eabi-gcc -o "stm32f0.elf" @"objects.list"   -mcpu=cortex-m0 -T"/home/elias/STM32CubeIDE/Pulse_Counter/stm32f0/STM32F030F4PX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f0.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: stm32f0.elf
  
 arm-none-eabi-size  stm32f0.elf 
 arm-none-eabi-objdump -h -S stm32f0.elf  > "stm32f0.list"
    text	   data	    bss	    dec	    hex	filename
-   1356	      0	   1568	   2924	    b6c	stm32f0.elf
+   1528	      0	   1568	   3096	    c18	stm32f0.elf
 Finished building: default.size.stdout
  
 Finished building: stm32f0.list
  
 
-23:44:30 Build Finished. 0 errors, 1 warnings. (took 220ms)
+14:04:00 Build Finished. 0 errors, 0 warnings. (took 271ms)
 

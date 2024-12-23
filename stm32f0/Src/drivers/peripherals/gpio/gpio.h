@@ -21,7 +21,8 @@ typedef enum{
 
 typedef enum{
 	OUTPUT,
-	INPUT
+	INPUT,
+	ALTERNATE_FUNCTION
 }gpio_mode_t;
 
 typedef enum{
@@ -51,10 +52,22 @@ typedef struct{
 	uint8_t pin;
 }gpio_config_t ;
 
+typedef enum{
+	AF0,
+	AF1,
+	AF2,
+	AF3,
+	AF4,
+	AF5,
+	AF6,
+	AF7
+}gpio_af_t;
+
 void gpio_init(rcc_gpio_t port);
 stm_error_t gpio_cfg_peripheral(gpio_config_t *cfg);
 stm_error_t gpio_toggle_pin(GPIO_TypeDef *GPIOX, uint8_t pin);
 stm_error_t gpio_set_pin(GPIO_TypeDef *GPIOX, uint8_t pin);
 stm_error_t gpio_reset_pin(GPIO_TypeDef *GPIOX, uint8_t pin);
-
+uint8_t gpio_read_pin(GPIO_TypeDef *GPIOX, uint8_t pin);
+void gpio_select_alternate_function(GPIO_TypeDef *GPIOX,uint8_t pin,gpio_af_t AF);
 #endif /* DRIVERS_PERIPHERALS_GPIO_GPIO_H_ */

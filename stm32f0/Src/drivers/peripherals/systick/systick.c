@@ -8,7 +8,7 @@
 
 #include "systick.h"
 
-void delay_us(uint32_t delay_time){
+void delay_us_sys(uint32_t delay_time){
 	SysTick->LOAD = SYSTICK_LOAD_VALUE_US;
 	SysTick->VAL = 0;
 	SysTick->CTRL |= (SYST_CSR_CLKSOURCE | SYST_CSR_ENABLE);
@@ -19,7 +19,7 @@ void delay_us(uint32_t delay_time){
 	SysTick->CTRL = 0;
 }
 
-void delay_ms(uint32_t delay_time){
+void delay_ms_sys(uint32_t delay_time){
 	SysTick->LOAD = SYSTICK_LOAD_VALUE_MS;
 	SysTick->VAL = 0;
 	SysTick->CTRL |= (SYST_CSR_CLKSOURCE | SYST_CSR_ENABLE);
@@ -30,7 +30,7 @@ void delay_ms(uint32_t delay_time){
 	SysTick->CTRL = 0;
 }
 
-void delay_s(uint32_t delay_time){
+void delay_s_sys(uint32_t delay_time){
 	SysTick->LOAD = SYSTICK_LOAD_VALUE_S;
 	SysTick->VAL = 0;
 	SysTick->CTRL |= (SYST_CSR_CLKSOURCE | SYST_CSR_ENABLE);

@@ -12,6 +12,15 @@
 #include "stm32f030x6.h"
 
 
+#define RCC_TIM1_EN (1U << 11)
+#define RCC_TIM3_EN (1U << 1)
+#define RCC_TIM6_EN (1U << 4)
+#define RCC_TIM7_EN (1U << 5)
+#define RCC_TIM14_EN (1U << 8)
+#define RCC_TIM15_EN (1U << 16)
+#define RCC_TIM16_EN (1U << 17)
+#define RCC_TIM17_EN (1U << 18)
+
 
 typedef enum {
 	RCC_GPIOA = 17,
@@ -22,6 +31,14 @@ typedef enum {
 }rcc_gpio_t;
 
 
-void rcc_enable_gpio(rcc_gpio_t gpio);
+typedef enum {
+	RCC_TIM1 = RCC_TIM1_EN,
+	RCC_TIM3 = RCC_TIM3_EN,
+	RCC_TIM16 = RCC_TIM16_EN,
+	RCC_TIM17 = RCC_TIM17_EN
+}rcc_tim_t;
 
+
+void rcc_enable_gpio(rcc_gpio_t gpio);
+void rcc_enable_timer(rcc_tim_t tim);
 #endif /* DRIVERS_PERIPHERALS_RCC_RCC_H_ */

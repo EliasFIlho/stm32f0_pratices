@@ -13,6 +13,13 @@ void gpio_init(rcc_gpio_t port){
 	rcc_enable_gpio(port);
 }
 
+
+
+uint8_t gpio_read_pin(GPIO_TypeDef *GPIOX, uint8_t pin){
+	return ((GPIOX->IDR & (1 << pin))>> pin);
+}
+
+
 stm_error_t gpio_cfg_peripheral(gpio_config_t *cfg){
 
 
@@ -53,11 +60,30 @@ stm_error_t gpio_cfg_peripheral(gpio_config_t *cfg){
 				cfg->GPIOX->PUPDR |= (1<<(((cfg->pin)*2)+1));
 			}
 			return STM_OK;
+		}else if(cfg->direction == ALTERNATE_FUNCTION){
+			cfg->GPIOX->MODER |= (1 << ((cfg->pin*2)+1));
+			cfg->GPIOX->MODER &= ~(1 << (cfg->pin*2));
+			return STM_OK;
 		}else{
 			return STM_FAIL;
 		}
 	}
 
+}
+
+
+void gpio_select_alternate_function(GPIO_TypeDef *GPIOX, uint8_t pin, gpio_af_t AF){
+	if(pin <= 15){
+		if(pin <= 7){
+			GPIOX->AFR[0] &= ~(7 << (pin * 4));
+			GPIOX->AFR[0] |= (AF << (pin * 4));
+		}else{
+			GPIOX->AFR[1] &= ~(7 << ((pin - 8) * 4));
+			GPIOX->AFR[1] |= (AF << ((pin - 8) * 4));
+		}
+	}else{
+
+	}
 }
 
 stm_error_t gpio_toggle_pin(GPIO_TypeDef *GPIOX, uint8_t pin){
