@@ -1,15 +1,7 @@
-14:04:00 **** Incremental Build of configuration Debug for project stm32f0 ****
+00:22:06 **** Incremental Build of configuration Debug for project stm32f0 ****
 make -j12 all 
-arm-none-eabi-gcc "../Src/drivers/peripherals/timer/timer.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F0 -DSTM32F030F4Px -DSTM32F030x6 -c -I../Inc -I/home/elias/STM32CubeIDE/Pulse_Counter/CMSIS/Include -I/home/elias/STM32CubeIDE/Pulse_Counter/CMSIS/Device/ST/STM32F0xx/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/drivers/peripherals/timer/timer.d" -MT"Src/drivers/peripherals/timer/timer.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/drivers/peripherals/timer/timer.o"
-arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F0 -DSTM32F030F4Px -DSTM32F030x6 -c -I../Inc -I/home/elias/STM32CubeIDE/Pulse_Counter/CMSIS/Include -I/home/elias/STM32CubeIDE/Pulse_Counter/CMSIS/Device/ST/STM32F0xx/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
-arm-none-eabi-gcc -o "stm32f0.elf" @"objects.list"   -mcpu=cortex-m0 -T"/home/elias/STM32CubeIDE/Pulse_Counter/stm32f0/STM32F030F4PX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f0.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: stm32f0.elf
- 
 arm-none-eabi-size  stm32f0.elf 
-arm-none-eabi-objdump -h -S stm32f0.elf  > "stm32f0.list"
    text	   data	    bss	    dec	    hex	filename
-   1528	      0	   1568	   3096	    c18	stm32f0.elf
+   9036	      0	   1576	  10612	   2974	stm32f0.elf
 Finished building: default.size.stdout
- 
-Finished building: stm32f0.list
  

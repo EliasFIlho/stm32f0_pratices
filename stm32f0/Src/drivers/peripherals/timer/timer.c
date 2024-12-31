@@ -9,6 +9,8 @@
 #include "timer.h"
 
 
+
+
 void init_timer(rcc_tim_t timer){
 	rcc_enable_timer(timer);
 }
@@ -35,27 +37,55 @@ void init_timer(rcc_tim_t timer){
  * */
 
 
-void init_input_capture(TIM_TypeDef *TIMX, TIM_CHANNEL CH){
+void init_input_capture(TIM_TypeDef *TIMX, TIM_CHANNEL CH,edge_t edge){
+
 	switch(CH){
 		case CH1:
 			TIMX->CCMR1 |= CCMRX_INPUT_IC1_BIT_0;
 			TIMX->CCMR1 &= ~CCMRX_INPUT_IC1_BIT_1;
+			TIMX->DIER |= DIER_CC1IE_BIT;
 			break;
 		case CH2:
 			TIMX->CCMR1 |= CCMRX_INPUT_IC2_BIT_0;
 			TIMX->CCMR1 &= ~CCMRX_INPUT_IC2_BIT_1;
+			TIMX->DIER |= DIER_CC2IE_BIT;
 			break;
 		case CH3:
 			TIMX->CCMR2 |= CCMRX_INPUT_IC3_BIT_0;
 			TIMX->CCMR2 &= ~CCMRX_INPUT_IC3_BIT_1;
+			TIMX->DIER |= DIER_CC3IE_BIT;
 			break;
 		case CH4:
 			TIMX->CCMR2 |= CCMRX_INPUT_IC4_BIT_0;
 			TIMX->CCMR2 &= ~CCMRX_INPUT_IC4_BIT_1;
+			TIMX->DIER |= DIER_CC4IE_BIT;
 			break;
 		default:
 			break;
 	}
 
+	switch(edge){
+		case RISING:
+			TIMX->CCER &= ~CCER_CC1P_BIT;
+			TIMX->CCER &= ~CCER_CC1NP_BIT;
+			break;
+		case FALLING:
+			TIMX->CCER |= CCER_CC1P_BIT;
+			TIMX->CCER &= ~CCER_CC1NP_BIT;
+			break;
+		case BOTH:
+			TIMX->CCER |= CCER_CC1P_BIT;
+			TIMX->CCER |= CCER_CC1NP_BIT;
+			break;
+		default:
+			break;
+	}
+
+	NVIC_EnableIRQ(TIM3_IRQn);
+	TIMX->PSC = 8-1;
+	TIMX->CNT = 0;
+	TIMX->CCER |= CCER_CC1E;
 
 }
+
+
