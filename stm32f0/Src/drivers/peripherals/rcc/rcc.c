@@ -7,10 +7,9 @@
 
 
 #include "rcc.h"
-//TODO: USE THE NEW MACROS TO WRITE/CLEAR/TOOGLE BITS
 
 void rcc_enable_gpio(rcc_gpio_t gpio){
-	RCC->AHBENR |= (1<< gpio);
+	SET_BIT(RCC->AHBENR,gpio);
 }
 //TODO: USE THE NEW MACROS TO WRITE/CLEAR/TOOGLE BITS
 
@@ -31,8 +30,8 @@ void rcc_enable_timer(rcc_tim_t tim){
 	}
 
 }
-//TODO: USE THE NEW MACROS TO WRITE/CLEAR/TOOGLE BITS
+
 
 void rcc_enable_usart(){
-	RCC->APB2ENR |= RCC_USART1_EN;
+	SET_BIT(RCC->APB2ENR,RCC_APB2ENR_USART1EN_Pos);
 }
