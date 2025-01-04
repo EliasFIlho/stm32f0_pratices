@@ -14,11 +14,13 @@ void gpio_init(rcc_gpio_t port){
 }
 
 
+//TODO: USE THE NEW MACROS TO WRITE/CLEAR/TOOGLE BITS
 
 uint8_t gpio_read_pin(GPIO_TypeDef *GPIOX, uint8_t pin){
 	return ((GPIOX->IDR & (1 << pin))>> pin);
 }
 
+//TODO: USE THE NEW MACROS TO WRITE/CLEAR/TOOGLE BITS
 
 stm_error_t gpio_cfg_peripheral(gpio_config_t *cfg){
 
@@ -71,6 +73,7 @@ stm_error_t gpio_cfg_peripheral(gpio_config_t *cfg){
 
 }
 
+//TODO: USE THE NEW MACROS TO WRITE/CLEAR/TOOGLE BITS
 
 void gpio_select_alternate_function(GPIO_TypeDef *GPIOX, uint8_t pin, gpio_af_t AF){
 	if(pin <= 15){
@@ -85,6 +88,7 @@ void gpio_select_alternate_function(GPIO_TypeDef *GPIOX, uint8_t pin, gpio_af_t 
 
 	}
 }
+//TODO: USE THE NEW MACROS TO WRITE/CLEAR/TOOGLE BITS
 
 stm_error_t gpio_toggle_pin(GPIO_TypeDef *GPIOX, uint8_t pin){
 	if(pin >= 0 && pin <=15){
@@ -94,6 +98,7 @@ stm_error_t gpio_toggle_pin(GPIO_TypeDef *GPIOX, uint8_t pin){
 		return STM_FAIL;
 	}
 }
+//TODO: USE THE NEW MACROS TO WRITE/CLEAR/TOOGLE BITS
 
 stm_error_t gpio_set_pin(GPIO_TypeDef *GPIOX, uint8_t pin){
 	if(pin >= 0 && pin <=15){
@@ -103,6 +108,7 @@ stm_error_t gpio_set_pin(GPIO_TypeDef *GPIOX, uint8_t pin){
 		return STM_FAIL;
 	}
 }
+//TODO: USE THE NEW MACROS TO WRITE/CLEAR/TOOGLE BITS
 
 stm_error_t gpio_reset_pin(GPIO_TypeDef *GPIOX, uint8_t pin){
 	if(pin >= 0 && pin <=15){

@@ -36,6 +36,7 @@ void init_timer(rcc_tim_t timer){
  *
  * */
 
+//TODO: USE THE NEW MACROS TO WRITE/CLEAR/TOOGLE BITS
 
 void init_input_capture(TIM_TypeDef *TIMX, TIM_CHANNEL CH,edge_t edge){
 

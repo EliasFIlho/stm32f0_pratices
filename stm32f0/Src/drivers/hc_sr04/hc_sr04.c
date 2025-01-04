@@ -70,12 +70,33 @@ uint16_t hcsr04_read_distance_cm(gpio_config_t *trigger){
 }
 
 
+uint16_t hcsr04_read_echo_time_lenght(gpio_config_t *trigger){
+	_trigger_io(trigger->GPIOX,trigger->pin);
+		uint32_t timeout = 1000000;
+		while(capture_complete == 0){
+			timeout--;
+			if(timeout == 0){
+				return 0;
+			}
+		}
+		uint16_t dif = second_time - first_time;
+		if (dif < 0) {
+			dif = UINT32_MAX - first_time + second_time;
+		}
+		second_time = 0;
+		first_time = 0;
+		return dif;
+
+}
+
 
 void static _trigger_io(GPIO_TypeDef *GPIOX, uint8_t pin){
 	gpio_set_pin(GPIOX, pin);
 	delay_us_sys(10);
 	gpio_reset_pin(GPIOX, pin);
 }
+
+//TODO: USE THE NEW MACROS TO WRITE/CLEAR/TOOGLE BITS
 
 void TIM3_IRQHandler(void){
 	if(TIM3->SR & SR_CC1IF_BIT){

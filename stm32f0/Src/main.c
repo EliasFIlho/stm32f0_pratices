@@ -28,9 +28,9 @@ int main(void)
 	gpio_init(RCC_GPIOA);
 	init_timer(RCC_TIM3);
 	hcsr04_init(&echo, &trigger);
-	uint16_t distance = 0;
+	uint16_t pusle_time = 0;
 	while(1){
-		distance = hcsr04_read_distance_cm(&trigger);
+		pusle_time = hcsr04_read_echo_time_lenght(&trigger);
 		delay_ms_sys(100);
 
 	}

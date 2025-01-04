@@ -7,6 +7,7 @@
 
 
 #include "systick.h"
+//TODO: USE THE NEW MACROS TO WRITE/CLEAR/TOOGLE BITS
 
 void delay_us_sys(uint32_t delay_time){
 	SysTick->LOAD = SYSTICK_LOAD_VALUE_US;
@@ -18,6 +19,7 @@ void delay_us_sys(uint32_t delay_time){
 	}
 	SysTick->CTRL = 0;
 }
+//TODO: USE THE NEW MACROS TO WRITE/CLEAR/TOOGLE BITS
 
 void delay_ms_sys(uint32_t delay_time){
 	SysTick->LOAD = SYSTICK_LOAD_VALUE_MS;
@@ -29,6 +31,7 @@ void delay_ms_sys(uint32_t delay_time){
 	}
 	SysTick->CTRL = 0;
 }
+//TODO: USE THE NEW MACROS TO WRITE/CLEAR/TOOGLE BITS
 
 void delay_s_sys(uint32_t delay_time){
 	SysTick->LOAD = SYSTICK_LOAD_VALUE_S;

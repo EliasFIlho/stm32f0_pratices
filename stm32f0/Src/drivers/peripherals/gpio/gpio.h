@@ -11,6 +11,8 @@
 
 #include <stdint.h>
 #include "stm32f030x6.h"
+#include "commun.h"
+
 #include "../rcc/rcc.h"
 
 

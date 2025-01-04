@@ -10,6 +10,7 @@
 
 #include <stdint.h>
 #include "stm32f030x6.h"
+#include "commun.h"
 
 
 #define RCC_TIM1_EN (1U << 11)
@@ -20,6 +21,8 @@
 #define RCC_TIM15_EN (1U << 16)
 #define RCC_TIM16_EN (1U << 17)
 #define RCC_TIM17_EN (1U << 18)
+
+#define RCC_USART1_EN (1U << 14)
 
 
 typedef enum {
@@ -41,4 +44,5 @@ typedef enum {
 
 void rcc_enable_gpio(rcc_gpio_t gpio);
 void rcc_enable_timer(rcc_tim_t tim);
+void rcc_enable_usart();
 #endif /* DRIVERS_PERIPHERALS_RCC_RCC_H_ */
