@@ -13,7 +13,7 @@
 #include "stm32f030x6.h"
 #include "commun.h"
 
-#include "../rcc/rcc.h"
+#include "rcc.h"
 
 
 typedef enum{
@@ -44,16 +44,6 @@ typedef enum{
 	PULL_DOWN
 }gpio_pupd_t;
 
-
-typedef struct{
-	GPIO_TypeDef *GPIOX;
-	gpio_mode_t direction;
-	gpio_output_mode_t output_mode;
-	gpio_output_speed_t speed;
-	gpio_pupd_t pupdr;
-	uint8_t pin;
-}gpio_config_t ;
-
 typedef enum{
 	AF0,
 	AF1,
@@ -64,6 +54,18 @@ typedef enum{
 	AF6,
 	AF7
 }gpio_af_t;
+
+
+
+typedef struct{
+	GPIO_TypeDef *GPIOX;
+	gpio_mode_t direction;
+	gpio_output_mode_t output_mode;
+	gpio_output_speed_t speed;
+	gpio_pupd_t pupdr;
+	uint8_t pin;
+	gpio_af_t AF;
+}gpio_config_t ;
 
 void gpio_init(rcc_gpio_t port);
 stm_error_t gpio_cfg_peripheral(gpio_config_t *cfg);

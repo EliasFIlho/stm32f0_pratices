@@ -10,7 +10,7 @@
 
 #include "stm32f030x6.h"
 #include "commun.h"
-#include "../rcc/rcc.h"
+#include "rcc.h"
 
 
 
@@ -60,9 +60,9 @@ typedef enum{
 }TIM_CHANNEL;
 
 typedef enum{
-	RISING,
-	FALLING,
-	BOTH
+	RISING_EDGE,
+	FALLING_EDGE,
+	BOTH_EDGE
 }edge_t;
 
 void init_timer(rcc_tim_t timer);

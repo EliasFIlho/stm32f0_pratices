@@ -38,7 +38,7 @@ stm_error_t hcsr04_init(gpio_config_t *echo, gpio_config_t *trigger){
 			gpio_select_alternate_function(echo->GPIOX,echo->pin,AF1);
 
 		}
-		init_input_capture(TIM3, CH1, BOTH);
+		init_input_capture(TIM3, CH1, BOTH_EDGE);
 	}
 	return STM_OK;
 

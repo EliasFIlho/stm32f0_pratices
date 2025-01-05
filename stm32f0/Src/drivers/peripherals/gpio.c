@@ -65,6 +65,7 @@ stm_error_t gpio_cfg_peripheral(gpio_config_t *cfg){
 		}else if(cfg->direction == ALTERNATE_FUNCTION){
 			cfg->GPIOX->MODER |= (1 << ((cfg->pin*2)+1));
 			cfg->GPIOX->MODER &= ~(1 << (cfg->pin*2));
+			gpio_select_alternate_function(cfg->GPIOX,cfg->pin,cfg->AF);
 			return STM_OK;
 		}else{
 			return STM_FAIL;
@@ -102,7 +103,7 @@ stm_error_t gpio_toggle_pin(GPIO_TypeDef *GPIOX, uint8_t pin){
 
 stm_error_t gpio_set_pin(GPIO_TypeDef *GPIOX, uint8_t pin){
 	if(pin >= 0 && pin <=15){
-		GPIOX->BSRR |= (1 << pin);
+		SET_BIT(GPIOX->BSRR,pin);
 		return STM_OK;
 	}else{
 		return STM_FAIL;
@@ -112,7 +113,7 @@ stm_error_t gpio_set_pin(GPIO_TypeDef *GPIOX, uint8_t pin){
 
 stm_error_t gpio_reset_pin(GPIO_TypeDef *GPIOX, uint8_t pin){
 	if(pin >= 0 && pin <=15){
-		GPIOX->BSRR |= (1 << (pin+16));
+		SET_BIT(GPIOX->BSRR,pin+16);
 		return STM_OK;
 	}else{
 		return STM_FAIL;

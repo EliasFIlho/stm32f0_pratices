@@ -10,9 +10,9 @@
 #include "stm32f030x6.h"
 #include "commun.h"
 
-#include "../peripherals/gpio/gpio.h"
-#include "../peripherals/systick/systick.h"
-#include "../peripherals/timer/timer.h"
+#include "../peripherals/gpio.h"
+#include "../peripherals/systick.h"
+#include "../peripherals/timer.h"
 
 #define SOUND_SPEED 0.0343
 stm_error_t hcsr04_init(gpio_config_t *echo, gpio_config_t *trigger);

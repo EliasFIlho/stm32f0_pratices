@@ -1,37 +1,32 @@
 #include <stdint.h>
-#include "stm32f030x6.h"
-#include "drivers/peripherals/rcc/rcc.h"
-#include "drivers/peripherals/gpio/gpio.h"
-#include "drivers/peripherals/systick/systick.h"
-#include "drivers/peripherals/timer/timer.h"
-#include "drivers/hc_sr04/hc_sr04.h"
+#include "tests/tests.h"
+
+
+// Define the test by set the name of the define as TEST_*PERIPHERAL*_*TESTCASE*
+// EX: TEST_GPIO_TOOGLE_PIN
+
+// NOTE: All the tests case run into a single thread in an infinite loop, so we can just try one at once
+// so this is more like an example select then a test routine but i don't care
+#define TEST_USART_TRASMITTER_BUFFER // SET TEST CASE
 
 int main(void)
 {
-	gpio_config_t trigger ={
-		.GPIOX = GPIOA,
-		.direction = OUTPUT,
-		.output_mode = PUSH_PULL,
-		.pupdr = NO_PUPD,
-		.speed = LOW_SPEED,
-		.pin = 7
-	};
-	gpio_config_t echo ={
-			.GPIOX = GPIOA,
-			.direction = ALTERNATE_FUNCTION,
-			.output_mode = PUSH_PULL,
-			.pupdr = NO_PUPD,
-			.speed = LOW_SPEED,
-			.pin = 6
-	};
 
-	gpio_init(RCC_GPIOA);
-	init_timer(RCC_TIM3);
-	hcsr04_init(&echo, &trigger);
-	uint16_t pusle_time = 0;
-	while(1){
-		pusle_time = hcsr04_read_echo_time_lenght(&trigger);
-		delay_ms_sys(100);
+#ifdef TEST_GPIO_TOOGLE_PIN
+	GPIO_TEST_TOOGLE_PIN();
+#endif
 
-	}
+#ifdef TEST_USART_TRASMITTER_BYTE
+	USART_TEST_TRANSMITTE_SINGLE_BYTE();
+#endif
+
+#ifdef TEST_USART_TRASMITTER_BUFFER
+	USART_TEST_TRANSMITTE_BUFFER();
+
+#endif
+
+#ifdef TEST_USART_RECEIVER
+
+#endif
+
 }

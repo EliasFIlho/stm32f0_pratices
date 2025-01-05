@@ -66,15 +66,15 @@ void init_input_capture(TIM_TypeDef *TIMX, TIM_CHANNEL CH,edge_t edge){
 	}
 
 	switch(edge){
-		case RISING:
+		case RISING_EDGE:
 			TIMX->CCER &= ~CCER_CC1P_BIT;
 			TIMX->CCER &= ~CCER_CC1NP_BIT;
 			break;
-		case FALLING:
+		case FALLING_EDGE:
 			TIMX->CCER |= CCER_CC1P_BIT;
 			TIMX->CCER &= ~CCER_CC1NP_BIT;
 			break;
-		case BOTH:
+		case BOTH_EDGE:
 			TIMX->CCER |= CCER_CC1P_BIT;
 			TIMX->CCER |= CCER_CC1NP_BIT;
 			break;

@@ -31,8 +31,11 @@ static void usart_enable_interrupt(usart_irq_en_t irq_en);
  * */
 
 
-void usart_init(usart_cfg *usart){
+void usart_init(usart_cfg_t *usart){
 	rcc_enable_usart();
+	// OK now i see that i need to change this RCC enable function for GPIO to be more modular
+	// Until i don't do that lets write the port by hand before call usart_init :p
+	//gpio_init(RCC_GPIOA);
 	gpio_cfg_peripheral(usart->tx_pin);
 	gpio_cfg_peripheral(usart->rx_pin);
 	usart_config_wl(usart->mode);
@@ -40,6 +43,7 @@ void usart_init(usart_cfg *usart){
 	usart_config_boud_rate(usart->baud_rate,usart->usart_div);
 	usart_config_stop_bits(usart->stop_bit_n);
 	usart_config_directoins(usart->directions);
+	usart_enable_interrupt(usart->irq_en_sel);
 	usart_config_enable();
 }
 
@@ -47,10 +51,10 @@ void usart_init(usart_cfg *usart){
 
 
 static void usart_config_wl(usart_frame_lenght_t wl){
-	if(wl == MODE_9_BITS){
+	if(wl == USART_MODE_9_BITS){
 
 		SET_BIT(USART1->CR1,USART_CR1_M_Pos);
-	}else if(wl == MODE_8_BITS){
+	}else if(wl == USART_MODE_8_BITS){
 		CLEAR_BIT(USART1->CR1,USART_CR1_M_Pos);
 	}else{
 		// Error handling
@@ -148,14 +152,13 @@ static void usart_config_directoins(usart_directions direction){
 void usart_send_byte(uint8_t data){
 	while(!(USART1->ISR & USART_ISR_TXE));
 	SET_REG(USART1->TDR,data);
-	while(!(USART1->ISR & USART_ISR_TC));
 
 }
 
 // TODO: Create an error handler
 void usart_send_buffer(uint8_t *data, size_t len){
 	for(size_t i = 0; i< len;i++){
-		uart_send_byte(data[i]);
+		usart_send_byte(data[i]);
 	}
 }
 
@@ -163,7 +166,10 @@ void usart_send_buffer(uint8_t *data, size_t len){
 
 
 
-
+uint8_t usart_read_byte(){
+	while(!(USART1->ISR & USART_ISR_RXNE));
+	return USART1->RDR;
+}
 
 
 

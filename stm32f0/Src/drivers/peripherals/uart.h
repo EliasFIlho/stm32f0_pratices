@@ -13,16 +13,16 @@
 
 #include <stdint.h>
 #include "stm32f030x6.h"
-#include "../rcc/rcc.h"
-#include "../gpio/gpio.h"
+#include "rcc.h"
+#include "gpio.h"
 #include <stddef.h>
 
 
 
 
 typedef enum{
-	MODE_8_BITS,
-	MODE_9_BITS
+	USART_MODE_8_BITS,
+	USART_MODE_9_BITS
 }usart_frame_lenght_t;
 
 
@@ -68,9 +68,9 @@ typedef struct{
 	usart_directions directions;
 	usart_irq_en_t irq_en_sel;
 
-}usart_cfg;
+}usart_cfg_t;
 
-void usart_init(usart_cfg* usart);
+void usart_init(usart_cfg_t* usart);
 void usart_send_byte(uint8_t data);
 void usart_send_buffer(uint8_t *data, size_t len);
 uint8_t usart_read_byte();
