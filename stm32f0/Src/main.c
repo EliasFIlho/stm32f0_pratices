@@ -7,7 +7,7 @@
 
 // NOTE: All the tests case run into a single thread in an infinite loop, so we can just try one at once
 // so this is more like an example select then a test routine but i don't care
-#define TEST_USART_TRASMITTER_BUFFER // SET TEST CASE
+#define TEST_USART_INTERRUPT // SET TEST CASE
 
 int main(void)
 {
@@ -26,7 +26,11 @@ int main(void)
 #endif
 
 #ifdef TEST_USART_RECEIVER
+	USART_TEST_POLLING_READ();
+#endif
 
+#ifdef TEST_USART_INTERRUPT
+	USART_TEST_INTERRUPT();
 #endif
 
 }

@@ -64,9 +64,10 @@ static void usart_config_wl(usart_frame_lenght_t wl){
 
 static void usart_enable_interrupt(usart_irq_en_t irq_en){
 	if(irq_en == USART_ENABLE_TX_IRQ){
-
 		SET_BIT(USART1->CR1,USART_CR1_TCIE_Pos);
+		CLEAR_BIT(USART1->CR1,USART_CR1_RXNEIE_Pos);
 	}else if(irq_en == USART_ENABLE_RX_IRQ){
+		CLEAR_BIT(USART1->CR1,USART_CR1_TCIE_Pos);
 		SET_BIT(USART1->CR1,USART_CR1_RXNEIE_Pos);
 	}else if(irq_en == USART_ENABLE_BOTH_IRQ){
 		SET_BIT(USART1->CR1,USART_CR1_TCIE_Pos);
@@ -78,6 +79,7 @@ static void usart_enable_interrupt(usart_irq_en_t irq_en){
 
 		//Do Error handling
 	}
+	NVIC_EnableIRQ(USART1_IRQn);
 }
 
 static void usart_config_boud_rate(uint32_t boud_rate, usart_clock_divider_t usart_div){
@@ -137,7 +139,7 @@ static void usart_config_directoins(usart_directions direction){
 		SET_BIT(USART1->CR1,USART_CR1_TE_Pos);
 	}else if(direction == RECEIVER_ONLY){
 		SET_BIT(USART1->CR1,USART_CR1_RE_Pos);
-	}else if(direction == BOTH){
+	}else if(direction == TRANSMITTER_AND_RECEIVER){
         SET_BIT(USART1->CR1, USART_CR1_TE_Pos);
         SET_BIT(USART1->CR1, USART_CR1_RE_Pos);
     } else {

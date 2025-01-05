@@ -35,7 +35,7 @@ typedef enum{
 typedef enum{
 	TRANSMITTER_ONLY,
 	RECEIVER_ONLY,
-	BOTH
+	TRANSMITTER_AND_RECEIVER
 }usart_directions;
 
 typedef enum{
