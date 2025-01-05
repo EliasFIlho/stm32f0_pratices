@@ -1,87 +1,12 @@
-13:11:33 **** Incremental Build of configuration Debug for project stm32f0 ****
+13:27:47 **** Incremental Build of configuration Debug for project stm32f0 ****
 make -j12 all 
 arm-none-eabi-gcc "../Src/tests/tests.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F0 -DSTM32F030F4Px -DSTM32F030x6 -c -I../Inc -I/home/elias/STM32CubeIDE/Pulse_Counter/CMSIS/Include -I/home/elias/STM32CubeIDE/Pulse_Counter/CMSIS/Device/ST/STM32F0xx/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/tests/tests.d" -MT"Src/tests/tests.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/tests/tests.o"
 ../Src/tests/tests.c: In function 'USART_TEST_TRANSMITTE_BUFFER':
-../Src/tests/tests.c:99:43: warning: pointer targets in passing argument 1 of 'usart_send_buffer' differ in signedness [-Wpointer-sign]
-   99 |                         usart_send_buffer(data, 7);
-      |                                           ^~~~
-      |                                           |
-      |                                           char *
-In file included from ../Src/tests/tests.h:16,
-                 from ../Src/tests/tests.c:12:
-../Src/tests/../drivers/peripherals/uart.h:75:33: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
-   75 | void usart_send_buffer(uint8_t *data, size_t len);
-      |                        ~~~~~~~~~^~~~
-arm-none-eabi-gcc -o "stm32f0.elf" @"objects.list"   -mcpu=cortex-m0 -T"/home/elias/STM32CubeIDE/Pulse_Counter/stm32f0/STM32F030F4PX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f0.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: stm32f0.elf
- 
-arm-none-eabi-size  stm32f0.elf 
-arm-none-eabi-objdump -h -S stm32f0.elf  > "stm32f0.list"
-   text	   data	    bss	    dec	    hex	filename
-   2960	      0	   1576	   4536	   11b8	stm32f0.elf
-Finished building: default.size.stdout
- 
-Finished building: stm32f0.list
- 
-13:11:35 **** Incremental Build of configuration Debug for project stm32f0 ****
-make -j12 all 
-arm-none-eabi-gcc "../Src/tests/tests.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F0 -DSTM32F030F4Px -DSTM32F030x6 -c -I../Inc -I/home/elias/STM32CubeIDE/Pulse_Counter/CMSIS/Include -I/home/elias/STM32CubeIDE/Pulse_Counter/CMSIS/Device/ST/STM32F0xx/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/tests/tests.d" -MT"Src/tests/tests.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/tests/tests.o"
-../Src/tests/tests.c: In function 'USART_TEST_TRANSMITTE_BUFFER':
-../Src/tests/tests.c:99:43: warning: pointer targets in passing argument 1 of 'usart_send_buffer' differ in signedness [-Wpointer-sign]
-   99 |                         usart_send_buffer(data, 7);
-      |                                           ^~~~
-      |                                           |
-      |                                           char *
-In file included from ../Src/tests/tests.h:16,
-                 from ../Src/tests/tests.c:12:
-../Src/tests/../drivers/peripherals/uart.h:75:33: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
-   75 | void usart_send_buffer(uint8_t *data, size_t len);
-      |                        ~~~~~~~~~^~~~
-arm-none-eabi-gcc -o "stm32f0.elf" @"objects.list"   -mcpu=cortex-m0 -T"/home/elias/STM32CubeIDE/Pulse_Counter/stm32f0/STM32F030F4PX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f0.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: stm32f0.elf
- 
-arm-none-eabi-size  stm32f0.elf 
-arm-none-eabi-objdump -h -S stm32f0.elf  > "stm32f0.list"
-   text	   data	    bss	    dec	    hex	filename
-   2960	      0	   1576	   4536	   11b8	stm32f0.elf
-Finished building: default.size.stdout
- 
-Finished building: stm32f0.list
- 
-13:11:59 **** Incremental Build of configuration Debug for project stm32f0 ****
-make -j12 all 
-arm-none-eabi-gcc "../Src/tests/tests.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F0 -DSTM32F030F4Px -DSTM32F030x6 -c -I../Inc -I/home/elias/STM32CubeIDE/Pulse_Counter/CMSIS/Include -I/home/elias/STM32CubeIDE/Pulse_Counter/CMSIS/Device/ST/STM32F0xx/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/tests/tests.d" -MT"Src/tests/tests.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/tests/tests.o"
-../Src/tests/tests.c: In function 'USART_TEST_TRANSMITTE_BUFFER':
-../Src/tests/tests.c:99:43: warning: pointer targets in passing argument 1 of 'usart_send_buffer' differ in signedness [-Wpointer-sign]
-   99 |                         usart_send_buffer(data, 5);
-      |                                           ^~~~
-      |                                           |
-      |                                           char *
-In file included from ../Src/tests/tests.h:16,
-                 from ../Src/tests/tests.c:12:
-../Src/tests/../drivers/peripherals/uart.h:75:33: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
-   75 | void usart_send_buffer(uint8_t *data, size_t len);
-      |                        ~~~~~~~~~^~~~
-arm-none-eabi-gcc -o "stm32f0.elf" @"objects.list"   -mcpu=cortex-m0 -T"/home/elias/STM32CubeIDE/Pulse_Counter/stm32f0/STM32F030F4PX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f0.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: stm32f0.elf
- 
-arm-none-eabi-size  stm32f0.elf 
-arm-none-eabi-objdump -h -S stm32f0.elf  > "stm32f0.list"
-   text	   data	    bss	    dec	    hex	filename
-   2960	      0	   1576	   4536	   11b8	stm32f0.elf
-Finished building: default.size.stdout
- 
-Finished building: stm32f0.list
- 
-13:12:29 **** Incremental Build of configuration Debug for project stm32f0 ****
-make -j12 all 
-arm-none-eabi-gcc "../Src/tests/tests.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F0 -DSTM32F030F4Px -DSTM32F030x6 -c -I../Inc -I/home/elias/STM32CubeIDE/Pulse_Counter/CMSIS/Include -I/home/elias/STM32CubeIDE/Pulse_Counter/CMSIS/Device/ST/STM32F0xx/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/tests/tests.d" -MT"Src/tests/tests.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/tests/tests.o"
-../Src/tests/tests.c: In function 'USART_TEST_TRANSMITTE_BUFFER':
-../Src/tests/tests.c:99:43: warning: pointer targets in passing argument 1 of 'usart_send_buffer' differ in signedness [-Wpointer-sign]
-   99 |                         usart_send_buffer(data, 6);
-      |                                           ^~~~
-      |                                           |
-      |                                           char *
+../Src/tests/tests.c:99:35: warning: pointer targets in passing argument 1 of 'usart_send_buffer' differ in signedness [-Wpointer-sign]
+   99 |                 usart_send_buffer("testando\n", 9);
+      |                                   ^~~~~~~~~~~~
+      |                                   |
+      |                                   char *
 In file included from ../Src/tests/tests.h:16,
                  from ../Src/tests/tests.c:12:
 ../Src/tests/../drivers/peripherals/uart.h:75:33: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
